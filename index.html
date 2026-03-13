@@ -325,13 +325,17 @@ Fixed Tap: ${tap}
 
 Thank you.`;
 
-    let whatsapp = "https://wa.me/254762 754 987?text=" + encodeURIComponent(message);
+   function sendToWhatsApp() {
+    let message = "Hello, I would like to make an order.";
+    let whatsapp = "https://wa.me/254762754987?text=" + encodeURIComponent(message);
     window.open(whatsapp, "_blank");
+};
 });
 </script>
 
 </body>
 </html>
+
 
 
 
