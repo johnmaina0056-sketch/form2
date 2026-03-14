@@ -168,9 +168,7 @@ Please provide the following details to process your order and arrange delivery.
 
 <label>1. Tank Size</label>
 <select id="tank" required>
-
 <option value="">Select Tank Size</option>
-
 <option value="100 Litres | 22 Gallons | 46x68 cm | Ksh 750">100 Litres | 22 Gallons | 46 x 68 cm | Ksh 750</option>
 <option value="140 Litres | 33 Gallons | 71x44 cm | Ksh 920">140 Litres | 33 Gallons | 71 x 44 cm | Ksh 920</option>
 <option value="150 Litres | 33 Gallons | 52x69 cm | Ksh 1,250">150 Litres | 33 Gallons | 52 x 69 cm | Ksh 1,250</option>
@@ -201,7 +199,6 @@ Please provide the following details to process your order and arrange delivery.
 <option value="16000 Litres | 3300 Gallons | 314x244 cm | Ksh 67,500">16000 Litres | 3300 Gallons | 314 x 244 cm | Ksh 67,500</option>
 <option value="20000 Litres | 4545 Gallons | 338x255 cm | Ksh 98,500">20000 Litres | 4545 Gallons | 338 x 255 cm | Ksh 98,500</option>
 <option value="24000 Litres | 5100 Gallons | 356x276 cm | Ksh 135,500">24000 Litres | 5100 Gallons | 356 x 276 cm | Ksh 135,500</option>
-
 </select>
 
 <label>2. Quantity</label>
@@ -231,7 +228,6 @@ Please provide the following details to process your order and arrange delivery.
   8. Exact Delivery Address (Nearby landmarks e.g. school, church, mosque.)
 </label>
 <textarea id="address" name="address" rows="4" placeholder="Enter your full delivery address..." required></textarea>
-
 
 <label>9. Preferred Delivery Date & Time</label>
 <input type="datetime-local" id="delivery" required>
@@ -280,23 +276,24 @@ Looking forward to serving you. Thank you!
 
 <script>
 document.getElementById("orderForm").addEventListener("submit",function(e){
-e.preventDefault();
+    e.preventDefault();
 
-let tank=document.getElementById("tank").value;
-let qty=document.getElementById("qty").value;
-let color=document.getElementById("color").value;
+    let tank=document.getElementById("tank").value;
+    let qty=document.getElementById("qty").value;
+    let color=document.getElementById("color").value;
 
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let email=document.getElementById("email").value;
-let company=document.getElementById("company_pin_certificate").value;
-let delivery=document.getElementById("delivery").value;
+    let name=document.getElementById("name").value;
+    let phone=document.getElementById("phone").value;
+    let email=document.getElementById("email").value;
+    let address=document.getElementById("address").value; // <-- Fixed Option 8
+    let company=document.getElementById("company_pin_certificate").value;
+    let delivery=document.getElementById("delivery").value;
 
-let payment=document.getElementById("payment").value;
-let install=document.getElementById("install").value;
-let tap=document.getElementById("tap").value;
+    let payment=document.getElementById("payment").value;
+    let install=document.getElementById("install").value;
+    let tap=document.getElementById("tap").value;
 
-let message=`ROTO TANK COMPANY ORDER
+    let message=`ROTO TANK COMPANY ORDER
 
 Product Details
 Tank Size: ${tank}
@@ -307,6 +304,7 @@ Customer Details
 Name: ${name}
 Phone: ${phone}
 Email: ${email}
+Exact Delivery Address: ${address}
 
 Company PIN Certificate:
 ${company}
@@ -320,9 +318,9 @@ Fixed Tap: ${tap}
 
 Thank you.`;
 
-let whatsapp="https://wa.me/254762754987?text="+encodeURIComponent(message);
+    let whatsapp="https://wa.me/254762754987?text="+encodeURIComponent(message);
 
-window.open(whatsapp,"_blank");
+    window.open(whatsapp,"_blank");
 });
 </script>
 
